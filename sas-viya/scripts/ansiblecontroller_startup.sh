@@ -90,4 +90,7 @@ elif [[ "$SCRIPT_PHASE" -eq "8" ]]; then
 	su $INSTALL_USER -c	"${CODE_DIRECTORY}/scripts/wrapper_04_final.sh"
 elif [[ "$SCRIPT_PHASE" -eq "9" ]]; then
 	cat "${CAS_URI_FILE}" |tr -d '\n'
+elif [[ "$SCRIPT_PHASE" -eq "10" ]]; then
+	echo "Installing Risk Modeling Content"
+    su $INSTALL_USER -c	"cd ${CODE_DIRECTORY}/content/RiskModeling_v03_2020/install; ./cli_wrapper.sh -e https://$PUBLIC_DNS_NAME -u sasadmin -p $ADMINPASS -P ."										 
 fi
