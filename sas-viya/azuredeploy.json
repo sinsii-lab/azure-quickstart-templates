@@ -170,6 +170,19 @@
             }
           },
           {
+"name": "allow-https-from-controller",
+"properties": {
+"protocol": "TCP",
+"sourcePortRange": "*",
+"destinationPortRange": "443",
+"sourceAddressPrefix": "[reference('AnsibleController_PublicIP').ipAddress]",
+"destinationAddressPrefix": "*",
+"access": "Allow",
+"priority": 1010,
+"direction": "Inbound"
+}
+},									  
+        {       
             "name": "allow-backend-health",
             "properties": {
               "protocol": "TCP",
@@ -989,7 +1002,7 @@
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments', 'AnsiblePhase7PostViyaInstall')]"
       ],
-      "properties": {
+      "properties": {  
         "mode": "Incremental",
         "templateLink": {
           "uri": "[variables('ExtensionAnsibleURI')]",
@@ -1014,6 +1027,40 @@
         }
       }
     },
+	{
+
+	  "name": "AnsiblePhase9InstallContent",
+	  "type": "Microsoft.Resources/deployments",
+	  "apiVersion": "2019-10-01",
+	  
+		"dependsOn": [
+		"[resourceId('Microsoft.Resources/deployments', 'AnsiblePhase8GetCASURIsFromLicense')]"
+		],
+	  "properties": {  
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('ExtensionAnsibleURI')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "vmName": {
+            "value": "Ansible"
+          },
+          "commandToExecute": {
+            "value": "[concat('set -o pipefail; ./ansiblecontroller_startup.sh \"10\"  2>&1 | tee /var/log/sas/install/runAnsiblePhase10_contentInstall.log')]"
+          },
+          "_artifactsLocation": {
+            "value": "[parameters('_artifactsLocation')]"
+          },
+          "_artifactsLocationSasToken": {
+            "value": "[parameters('_artifactsLocationSasToken')]"
+          }
+        }
+      }
+	},
     {
       "comments": "The network interface of the Ansible controller. This will be accessible to the public within the bounds of the security groups.",
       "type": "Microsoft.Network/networkInterfaces",
