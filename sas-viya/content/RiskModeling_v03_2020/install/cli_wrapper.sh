@@ -40,6 +40,7 @@ then
 fi
 #chmod 775 sas-risk-content-cli
 profileName="~/.sas/config.json"
+echo -e "profileName : ${profileName}"
 export adminPassworddecoded=$(echo "$adminPassword" | base64 -di)
 ./sas-risk-content-cli --profile ${profileName} profile set-endpoint $apiEndPoint
 ./sas-risk-content-cli --profile ${profileName} profile set-output json
