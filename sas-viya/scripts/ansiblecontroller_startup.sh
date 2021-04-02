@@ -63,7 +63,8 @@ export UTILITIES_DIR="\${INSTALL_DIR}/bin"
 export TOUCHPOINT_PREREQUISITES="/tmp/prerequisites.touch"
 export TOUCHPOINT_PREORCHESTRATION="/tmp/preorchestration.touch"
 
-
+echo -e "PUBLIC_DNS_NAME : $PUBLIC_DNS_NAME"
+echo -e "ADMINPASS : $ADMINPASS"
 
 EOF
 . "$environmentLocation"
