@@ -16,7 +16,7 @@ C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\error_rate_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\event_shift_index_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\event_stability_index_report.json.orig
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Feed_Outcome-value Based.json.orig
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Feed_Outcome-value_Based.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Feed.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\feed_mip_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\folder_package.json
