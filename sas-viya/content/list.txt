@@ -1,6 +1,7 @@
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\cli_wrapper.sh
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\common.properties
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\risk-content-package.yaml
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\sas-risk-content-cli
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\accuracy_ratio_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\accuracy_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\area_under_curve_report.json.orig
