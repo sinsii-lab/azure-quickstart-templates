@@ -845,7 +845,8 @@
 	quit;
 
 	%macro rmcr_ext_config_insert();
-		%let external_code_path = %nrstr(/&m_file_srvr_root_folder_nm/Risk Modeling Content/v03.2020/Banking Solution/macros);
+	/*	%let external_code_path = %nrstr(/&m_file_srvr_root_folder_nm/Risk Modeling Content/v08.2020/Banking Solution/macros);*/
+		%let external_code_path = &m_cr_banking_solution_macro_path.;
 
 			proc sql;
 			insert into &lib_apdm..EXTERNAL_CODE_MASTER(

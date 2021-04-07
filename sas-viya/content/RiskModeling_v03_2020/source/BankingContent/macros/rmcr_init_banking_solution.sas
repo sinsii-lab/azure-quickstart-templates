@@ -45,11 +45,11 @@
 	select locale, kstrip(key), lineno, text from &lib_apdm..RMCR_MESSAGE_DETAIL where kupcase(kstrip(cr_type_cd))='BANKING_SOLUTION' and kupcase(kstrip(cr_sub_type_cd))='Y' ;   /* I18NOK:LINE */
 	quit;
 	
-	proc sort data=work.rmcr_message_dtl_banking;
+	proc sort data=work.rmcr_message_dtl_banking nodupkey;
 	by locale key descending lineno;
 	run;
 	
-	proc sort data=work.rmcr_message_bnkfdn_banking;
+	proc sort data=work.rmcr_message_bnkfdn_banking nodupkey;
 	by locale key descending lineno;
 	run;
 	
@@ -76,9 +76,9 @@
 	
 		filename macr_cd filesrvc folderpath="&m_cr_banking_solution_macro_path./" filename= "&m_macro_cd_nm" debug=http; /* i18nOK:Line */
 		
-		%if "&_FILESRVC_init_cd_URI" eq "" %then %do;
+		%if "&_FILESRVC_macr_cd_URI" eq "" %then %do;
 			/* %let job_rc = 1012; */
-			%put %sysfunc(sasmsg(work.rmcr_message_dtl_banking, RMCR_BANKING_SOLUTION_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&m_init_file_path.));;
+			%put %sysfunc(sasmsg(work.rmcr_message_dtl_banking, RMCR_BANKING_SOLUTION_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&m_cr_banking_solution_macro_path.));
 		%end;
 		
 		%else %do;		
