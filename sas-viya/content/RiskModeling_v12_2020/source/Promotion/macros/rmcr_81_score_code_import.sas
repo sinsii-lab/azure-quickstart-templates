@@ -53,7 +53,7 @@ quit;
 		
 		%if &score_code_exist eq 1 %then %do;
 			filename scr_in "&m_staging_area_path/cs63_export_pkg/scoring_code/model/&model_sk/score.sas";/*i18NOK:LINE*/
-			filename scr_out filesrvc folderpath="/Products/SAS Risk Modeling/Model/&model_sk" filename= "score.sas" debug=http CD="attachment; filename=score.sas";/* i18nOK:Line */
+			filename scr_out filesrvc folderpath="/&m_file_srvr_mdl_folder_path./&model_sk" filename= "score.sas" debug=http CD="attachment; filename=score.sas";/* i18nOK:Line */
 			
 			data _null_;
 			infile scr_in end=eof_flg;
@@ -79,17 +79,19 @@ quit;
 		
 		%if &scorecard_group_exist eq 1 %then %do;
 			filename scr_in "&m_staging_area_path/cs63_export_pkg/scoring_code/model/&model_sk/scorecard_grouping_code_&model_sk..sas";/*i18NOK:LINE*/
-			filename scr_out filesrvc folderpath="/Products/SAS Risk Modeling/Model" filename= "scorecard_grouping_code_&model_sk..sas" debug=http CD="attachment; filename=scorecard_grouping_code_&model_sk..sas";/*i18nOK:Line */
+			filename scr_out filesrvc folderpath="/&m_file_srvr_mdl_folder_path." filename= "scorecard_grouping_code_&model_sk..sas" debug=http CD="attachment; filename=scorecard_grouping_code_&model_sk..sas";/*i18nOK:Line */
 			
 			data _null_;
 			rc=fcopy('scr_in','scr_out');
 			msg=sysmsg();
 			put rc = msg=;
 			if rc = 0 then do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion,RMCR_PROMOTION_MSG.SCORE_CD_SM4.1, noquote, &model_sk.)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion","RMCR_PROMOTION_MSG.SCORE_CD_SM4.1", "noquote", "&model_sk."); 
+				put msg;
 			end;
 			else do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion,RMCR_PROMOTION_MSG.SCORE_CD_SM5.1, noquote, &model_sk.)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion","RMCR_PROMOTION_MSG.SCORE_CD_SM5.1", "noquote", "&model_sk.");
+				put msg;
 				call symputx('job_rc',1012);
 			end;
 			run;

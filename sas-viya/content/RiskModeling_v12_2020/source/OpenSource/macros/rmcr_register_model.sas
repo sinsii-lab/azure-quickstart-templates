@@ -551,7 +551,7 @@ quit;
 				run;
 			quit;
 			
-			filename dst filesrvc folderpath="/Products/SAS Risk Modeling/Model/&m_model_sk." 
+			filename dst filesrvc folderpath="/&m_file_srvr_mdl_folder_path./&m_model_sk." 
 				filename="score.sas" debug=http;
 				
 			%if %sysfunc(fexist(scrcd)) %then  %do;

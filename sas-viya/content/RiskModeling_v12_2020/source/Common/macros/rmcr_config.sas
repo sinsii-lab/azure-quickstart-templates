@@ -33,21 +33,22 @@
  *														   
  * Authors		: BIS Team
  **************************************************************************************************/
- %macro rmcr_config;
+ %macro rmcr_config(cr_version=&m_cr_version);
  
 	%if %symexist(job_rc)=0 %then %do;
 		%global job_rc;
 	%end;
  
-	%global m_cr_version_folder_path m_cr_open_source_macro_path m_cr_promotion_macro_path m_cr_vdmml_macro_path m_cr_banking_solution_macro_path  ;
-	%global m_cr_open_source_folder_nm  m_cr_promotion_folder_nm m_cr_vdmml_folder_nm m_cr_banking_solution_folder_nm ;
+	%global m_cr_version_folder_path m_cr_open_source_macro_path m_cr_promotion_macro_path m_cr_vdmml_macro_path m_cr_banking_solution_macro_path m_cr_rpm_reports_macro_path ;
+	%global m_cr_open_source_folder_nm  m_cr_promotion_folder_nm m_cr_vdmml_folder_nm m_cr_banking_solution_folder_nm m_cr_rpm_reports_folder_nm;
 	%global m_cr_common_smd_path m_cr_open_source_smd_path  m_cr_promotion_smd_path m_cr_vdmml_smd_path m_cr_banking_solution_smd_path ;
 	
 	%let m_cr_unique_cd = RM_CONTENT;
 	%let m_cr_folder_nm = Risk Modeling Content;
-	%let m_cr_version_number = v03.2020;
+	%let m_cr_version_number = &m_cr_version.;
+	%let m_prev_cr_version=v08.2020;
 	%let m_cr_init_file_name = rmcr_init_wrapper.sas;
-	%let m_cr_file_path = /Products/SAS Risk Modeling/Risk Modeling Content/v03.2020/Common/Macros;
+	%let m_cr_file_path = /&M_FILE_SRVR_ROOT_FOLDER_NM./&m_cr_folder_nm./&m_cr_version_number./Common/Macros;
 	%let m_cr_init_stmt = '%rmcr_init_wrapper;';       /* I18NOK:LINE */
 	%let yes_flg = Y;
 	
@@ -81,23 +82,27 @@
 	%let m_cr_promotion_folder_nm = Promotion;
 	%let m_cr_vdmml_folder_nm = VDMML;
 	%let m_cr_banking_solution_folder_nm = Banking Solution;
-	
-	%let m_cr_version_folder_path = /Products/SAS Risk Modeling/&m_cr_folder_nm./&m_cr_version_number.;
+	%let m_cr_rpm_reports_folder_nm = Risk Performance Monitoring Reports;
+	%let m_cr_cprm_folder_nm = Selective Content Promotion;
+
+	%let m_cr_version_folder_path = /&M_FILE_SRVR_ROOT_FOLDER_NM./&m_cr_folder_nm./&m_cr_version_number.;
 	
 	%let m_cr_open_source_macro_path = &m_cr_version_folder_path./&m_cr_open_source_folder_nm./Macros;
 	
 	%let m_cr_promotion_macro_path = &m_cr_version_folder_path./&m_cr_promotion_folder_nm./Macros;
 	%let m_cr_vdmml_macro_path = &m_cr_version_folder_path./&m_cr_vdmml_folder_nm./Macros;
 	%let m_cr_banking_solution_macro_path = &m_cr_version_folder_path./&m_cr_banking_solution_folder_nm./Macros;
-	
+	%let m_cr_rpm_reports_macro_path = &m_cr_version_folder_path./&m_cr_rpm_reports_folder_nm./Macros;
+	%let m_cr_cprm_macro_path = &m_cr_version_folder_path./&m_cr_cprm_folder_nm./Macros;
 
 	%let m_cr_common_smd_path = &m_cr_version_folder_path./&m_cr_common_folder_nm./smd;
 	%let m_cr_open_source_smd_path = &m_cr_version_folder_path./&m_cr_open_source_folder_nm./smd;
+	%let m_cr_rpm_reports_smd_path = &m_cr_version_folder_path./&m_cr_rpm_reports_folder_nm./smd;
 	
 	%let m_cr_promotion_smd_path = &m_cr_version_folder_path./&m_cr_promotion_folder_nm./smd;
 	%let m_cr_vdmml_smd_path = &m_cr_version_folder_path./&m_cr_vdmml_folder_nm./smd;
 	%let m_cr_banking_solution_smd_path = &m_cr_version_folder_path./&m_cr_banking_solution_folder_nm./smd;
-	
+	%let m_cr_cprm_smd_path = &m_cr_version_folder_path./&m_cr_cprm_folder_nm./smd;
 	/**********************************************************************************/
 	/* 3. Create a table APDM.RMCR for locale specific messages from smd files.		  */
 	/**********************************************************************************/
@@ -172,15 +177,22 @@
 			/* Create a message dataset in WORK library */
 			%smd2ds ( DIR = &m_rel_path.,
 			BASENAME = &m_message_ds_nm.,
-			LIB = work,
-			locale= pt_BR zh_CN zh_HK zh_TW ja ko ru es
+			LIB = work
+			,locale= pt_BR zh_CN zh_HK zh_TW ja ko ru es
+			
 			);
 		%end;
 	
 		%if "&m_populate_apdm." = "Y" %then %do;  /* I18NOK:LINE */
 			/* Append the data from WORK library to apdm.rmcr_message_detail */
 			proc sql ;
-		
+			%if &m_cr_type eq RPM_REPORTS %then %do;
+				delete from &lib_apdm..rmcr_message_detail where cr_type_cd="&m_cr_type.";  /* i18NOK:LINE */
+			%end;
+			%else %if &m_cr_type eq CPRM %then %do;
+				delete from &lib_apdm..rmcr_message_detail where cr_type_cd="&m_cr_type.";  /* i18NOK:LINE */
+			%end;
+			
 			insert into &lib_apdm..rmcr_message_detail (key, lineno, locale, text, cr_type_cd,cr_sub_type_cd)
 				select key, lineno, locale, text, "&m_cr_type." as cr_type_cd, "&cr_sub_type_cd." as cr_sub_type_cd
 					from work.&m_message_ds_nm.;
@@ -196,61 +208,83 @@
 	/****************************************************************/
 	/* 2. Check apdm.cs_cr_info for entry of valid CR configuration */
 	/****************************************************************/	
-	%let m_ext_cr_status_sk = ;
+	%let m_ext_cr_status_sk =0;
+	%let m_prev_cr_status_sk=0;	
+	%let m_cnt=0;
+	
 	proc sql noprint;
-	select coalesce(status_sk,0) into :m_ext_cr_status_sk
+	select coalesce(status_sk,0)
+			  into :m_ext_cr_status_sk
 		from &lib_apdm..cs_cr_info
-		where cr_unique_cd = "&m_cr_unique_cd." and cr_version_number = "&m_cr_version_number." ;
+		where cr_unique_cd = "&m_cr_unique_cd."  and cr_version_number = "&m_cr_version_number"; /* i18NOK:LINE */
+		
+		select coalesce(status_sk,0)
+			  into :m_prev_cr_status_sk
+		from &lib_apdm..cs_cr_info
+		where cr_unique_cd = "&m_cr_unique_cd."  and cr_version_number = "&m_prev_cr_version";	 /* i18NOK:LINE */
+		
+		select count(*) into :m_cnt		 /* i18NOK:LINE */
+ 		from &lib_apdm..cs_cr_info where cr_unique_cd = "&m_cr_unique_cd." ;   /* i18NOK:LINE */
 	quit;
 	%dabt_err_chk(type=SQL);
 	%let m_ext_cr_status_sk = &m_ext_cr_status_sk.;
+	%let m_prev_cr_status_sk=&m_prev_cr_status_sk.;
+	%let m_cnt=&m_cnt.;
 	
-	%if "&m_ext_cr_status_sk." ne "1" %then %do;    /* I18NOK:LINE */
-	/****************************************************************/
-	/* insert smd messages for CR into rmcr_message_detail 		    */
-	/****************************************************************/
-		%let access_apdm_smd=riskmodelingcore;
-                
-        PROC SQL;
-        &apdm_connect_string.;
-        execute(truncate &access_apdm_smd..rmcr_message_detail;
-		) by postgres;
-        &apdm_disconnect_string.;
-        quit;
-	
+	%if &m_ext_cr_status_sk ne 1 %then %do;
+		
+		%if &m_prev_cr_status_sk. ne 1 or &m_cnt eq 0 %then %do;
+		/****************************************************************/
+		/* insert smd messages for CR into rmcr_message_detail 		    */
+		/****************************************************************/
+			%let access_apdm_smd=&apdm_schema.;
+					
+			PROC SQL;
+			&apdm_connect_string.;
+			execute(truncate &access_apdm_smd..rmcr_message_detail;
+			) by postgres;
+			&apdm_disconnect_string.;
+			quit;
+		
 
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_common_smd_path., m_cr_smd_file_nm= rmcr_common.smd , m_cr_type=COMMONDUMMY,cr_sub_type_cd=N, m_populate_apdm=N); /*** dummy call to bypass smderror***/
-	
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_level_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_library_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_column_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_dim_attrib_value.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_table_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y,m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_subject_group_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_common_smd_path., m_cr_smd_file_nm= rmcr_common.smd , m_cr_type=COMMONDUMMY,cr_sub_type_cd=N, m_populate_apdm=N); /*** dummy call to bypass smderror***/
 		
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_subset_from_path_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csb_pool_scheme_type_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csb_pool_schm_type_x_method.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_event_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_external_code_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_level_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_level_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_library_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_column_master.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_dim_attrib_value.smd , m_cr_type=BANKING_SOLUTION, cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_source_table_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y,m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_subject_group_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y, m_populate_apdm=Y);
+			
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=bankfdn_subset_from_path_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=Y, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csb_pool_scheme_type_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csb_pool_schm_type_x_method.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_event_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_external_code_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_level_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_library_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_modeling_abt_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_modeling_abt_x_variable.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_parameter_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_pool_chrstc_cal_type.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_pool_impct_chrstc_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_purpose_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_source_column_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_source_table_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_src_dim_attrib_val_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_subject_group_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_subset_from_path_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+			
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_open_source_smd_path., m_cr_smd_file_nm= rmcr_open_source.smd , m_cr_type=OPEN_SOURCE_MODEL, cr_sub_type_cd=N,m_populate_apdm=Y);
+			%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_promotion_smd_path., m_cr_smd_file_nm=rmcr_promotion.smd , m_cr_type=PROMOTION, cr_sub_type_cd=N, m_populate_apdm=Y);
+			
+		%end;
 		
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_library_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_modeling_abt_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_modeling_abt_x_variable.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_parameter_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_pool_chrstc_cal_type.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_pool_impct_chrstc_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
+		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_rpm_reports_smd_path., m_cr_smd_file_nm=rmcr_rpm_reports.smd , m_cr_type=RPM_REPORTS, cr_sub_type_cd=N, m_populate_apdm=Y);
+		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_cprm_smd_path., m_cr_smd_file_nm=dabt_cprm_misc.smd , m_cr_type=CPRM, cr_sub_type_cd=N, m_populate_apdm=Y);
 		
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_purpose_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_source_column_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_source_table_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_src_dim_attrib_val_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-	    %rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_subject_group_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_banking_solution_smd_path., m_cr_smd_file_nm=csbmva_subset_from_path_master.smd , m_cr_type=BANKING_SOLUTION,cr_sub_type_cd=N, m_populate_apdm=Y);
-		
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_open_source_smd_path., m_cr_smd_file_nm= rmcr_open_source.smd , m_cr_type=OPEN_SOURCE_MODEL, cr_sub_type_cd=N,m_populate_apdm=Y);
-		%rmcr_create_message_data(m_cr_smd_file_path= &m_cr_promotion_smd_path., m_cr_smd_file_nm=rmcr_promotion.smd , m_cr_type=PROMOTION, cr_sub_type_cd=N, m_populate_apdm=Y);
 	
 		/* block #3. Create a table APDM.RMCR for locale specific messages from smd files - ends here */
 
@@ -274,6 +308,12 @@
 	/****************************************************************/
 	/* 5. Insert a record into apdm.cs_cr_info 						*/
 	/****************************************************************/
+		/*Remove the entry if any with existing m_cr_unique_cd. This will happen if 
+	     a user having 1 version of CR tries to configure another version */
+		proc sql;
+			delete from &lib_apdm..cs_cr_info
+				where cr_unique_cd = "&m_cr_unique_cd.";
+		quit;
 		proc sql noprint;
 			insert into &lib_apdm..cs_cr_info( cr_seq_no,cr_unique_cd, cr_version_number, cr_folder_nm, cr_init_file_name, 
 												cr_init_file_path, cr_init_stmt, status_sk, initiate_by_default_flg, cr_data_path)
@@ -310,12 +350,14 @@
 		%mend rmcr_exec_cr_config;
 		
 		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_open_source_macro_path., m_cr_config_file_nm=rmcr_config_open_source.sas);
+		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_banking_solution_macro_path., m_cr_config_file_nm=rmcr_config_banking_solution.sas);
+		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_cprm_macro_path., m_cr_config_file_nm=rmcr_config_cprm.sas);
 		%dabt_err_chk(type=SQL);
 		%dabt_err_chk(type=DATA);
 		/*
 		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_promotion_macro_path., m_cr_config_file_nm=rmcr_config_promotion.sas);
 		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_vdmml_macro_path., m_cr_config_file_nm=rmcr_config_vdmml.sas);
-		%rmcr_exec_cr_config(m_cr_config_file_path=&m_cr_banking_solution_macro_path., m_cr_config_file_nm=rmcr_config_banking_solution.sas);
+		
 		*/
 
 	
@@ -334,12 +376,46 @@
 				set status_sk = &m_cr_status_sk.
 				where cr_unique_cd = "&m_cr_unique_cd." and cr_version_number = "&m_cr_version_number.";
 		quit;		
+		
 
 	%end; /* block for condition %if "&m_ext_cr_status_sk." ne "1" ends here */
 	%else %do;
 		%put %sysfunc(sasmsg(WORK.RMCR_COMMON, RMCR_COMN_CONFIG.CR_DONE_NOTE, noquote) );	
 	%end; /* else block for condition %if "&m_ext_cr_status_sk." ne "1" ends here */
 
-%csbmva_connect(m_enable=N); 
+	/************ Enable Application debug parameter for framework to save fact tables ****/
+	
+	proc sql ;
+		update &lib_apdm..PARAMETER_VALUE_DTL set parameter_value='Y'    /* I18NOK:LINE */
+		where parameter_nm='DABT_DEBUG_FLG';							/* I18NOK:LINE */
+	quit;
+	
+	/**** Common task to update apdm tables with respective version CR macros ****/
+	
+	******************************************************************************;
+	* Start - Update MODEL_SOURCE_TYPE_MASTER table with scoring code path and location;
+	******************************************************************************;
+	%let m_scoring_code_macro_location = &m_cr_open_source_macro_path.;
+	%let m_scoring_code_macro_nm = rmcr_score_python_model;
+
+	proc sql noprint;
+		update &lib_apdm..MODEL_SOURCE_TYPE_MASTER 
+		 set scoring_code_macro_location ="&m_scoring_code_macro_location." ,
+		 scoring_code_macro_nm="&m_scoring_code_macro_nm."
+		 where kupcase(kstrip(model_source_type_cd)) = 'PYTHON' ;    /* I18NOK:LINE */
+	quit;
+	
+	******************************************************************************;
+	* Start - Update EXTERNAL_CODE_MASTER table with external code path;
+	******************************************************************************;
+	%let external_code_path = &m_cr_banking_solution_macro_path.;
+	
+	proc sql noprint;
+		update &lib_apdm..EXTERNAL_CODE_MASTER 
+		 set external_code_file_loc = "&external_code_path." 
+		 where external_code_sk in (1,2,3,4,5,6);
+	quit;	 
+	
+/*%csbmva_connect(m_enable=N); */
 	
  %mend rmcr_config;

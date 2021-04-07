@@ -1,0 +1,32 @@
+#Toolkit: CCS_smd-v12
+#For Export related macros
+CPRM_OWNER_NM_LABEL=Propriet\u00e1rio
+RMCR_CPRM.INIT_CODE1.1=%1zThe file \u201c%#1s\u201d  is not available at path \u201c%#2s\u201d. Ensure successful execution of CR.
+RMCR_CPRM_EXPORT_MODEL1.1=%1z \u201c%#1s\u201d Model with \u201c%#2s\u201d as published name does not exist in \u201c%#3s.%#4s\u201d CAS table corespodning to the published destination configured in SAS Risk Modeling.
+RMCR_CPRM_EXPORT_MODEL1.2=%1z Update respective published name in Risk Modeling under model properties option and rerun the export job.
+ERR_EXPORT_SPEC_FILE_NM_NOT_FOUND=%1z Export specification file \u201c%s\u201d not found.
+RMCR_CPRM_IMPORT_VDMML_MODEL1.1=%3z Model/s with \u201c%#1s\u201d as published name were existing in \u201c%#2s.%#3s\u201d CAS table corespodning to the published destination configured in SAS Risk Modeling. They are replaced with corresponding published model/s from source environment.
+CPRM_PRE_IMPORT_ANALYSIS_DTL.DESC1=Espera-se que o objeto seja importado com \u00eaxito.
+CPRM_PRE_IMPORT_ANALYSIS_DTL.DESC2=Espera-se que o objeto seja exclu\u00eddo do destino com \u00eaxito.
+ERR_MODEL_ID_NOT_VALID=%1zOut of the specified model IDs, the model ID \u201c%s\u201d does not exist.
+ERR_PROJECT_ID_NOT_VALID=%1zOut of the specified project IDs, the project ID \u201c%s\u201d does not exist.
+CPRM_SOURCE_ENTITY_NM_LABEL=Nome de entidade de origem
+CPRM_SOURCE_ENTITY_ID_LABEL=ID da entidade de origem
+CPRM_TARGET_ENTITY_ID_LABEL=ID da entidade de destino
+CPRM_LATEST_IMPORT_FLG_LABEL=Sinalizador de importa\u00e7\u00e3o mais recente
+CPRM_CREATED_DTTM_LABEL=Data e hora da cria\u00e7\u00e3o
+CPRM_CREATED_BY_USER_LABEL=Criado pelo usu\u00e1rio
+ERR_EXPORT_SRC_TGT_MAP_EXCEL_NOT_CREATED=%1zAn error occurred when creating the source target entity mapping info data set.
+ERR_EXPORT_SRC_TGT_MAP_EMPTY_DS=%1zsource target entity mapping info data set is empty.
+RMCR_CPRM_SYNC_ARM1.1=%1zThe table \u201c%#1s\u201d does not exist. So either ARM is not copied from target to source or scoring is not yet executed. So scoring control table would not be populated for model id \u201c%#2s\u201d.
+RMCR_CPRM_SYNC_ARM2.1=%1zThe table \u201c%#1s\u201d does not exist. So scoring control table would not be populated for model id \u201c%#2s\u201d.
+RMCR_CPRM_SYNC_ARM3.1=%1zThe table \u201c%#1s\u201d does not exist. So either ARM is not copied from target to source or actuals is not yet executed. So actual result control table would not be populated for model id \u201c%#2s\u201d.
+RMCR_CPRM_IMPORT_VDMML_MODEL2.1=%3z CAS table  \u201c%#1s\u201d is not avaialble in \u201c%#2s\u201d library.
+RMCR_CPRM_IMPORT_VDMML_MODEL3.1=%3z Physical file (.sashdat) for  \u201c%#1s\u201d is not avaialble in  \u201c%#2s\u201d. library. Hence it will be copied from source machine.
+CPRM_ENTITY_DESC_LABEL=DESCRI\u00c7\u00c3O DA ENTIDADE
+CPRM_ENTITY_KEY_LABEL=CHAVE DA ENTIDADE
+CPRM_ENTITY_NM_LABEL=NOME DA ENTIDADE
+CPRM_ENTITY_TYPE_CD_LABEL=C\u00d3DIGO DO TIPO DE ENTIDADE
+CPRM_ENTITY_TYPE_NM_LABEL=NOME DO TIPO DE ENTIDADE
+CPRM_PROMOTE_FLG_LABEL=SINALIZADOR PARA PROMOVER ESTA ENTIDADE
+RMCR_CPRM_IMPORT_WRAPPER1.1=%1z User \u201c%#1s\u201d mentioned in import specification file for \u201c%#2s\u201d not found in target.

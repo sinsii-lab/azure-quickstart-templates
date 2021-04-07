@@ -47,17 +47,19 @@ quit;
 
 		%if &ext_code_exist eq 1 %then %do;	
 			filename ext_in "&m_staging_area_path/cs63_export_pkg/external_code/&external_code_file";    /*i18NOK:LINE*/
-			filename ext_out filesrvc folderpath="/Products/SAS Risk Modeling/External Code" filename= "&external_code_file" debug=http CD="attachment; filename=&external_code_file";  /* i18nOK:Line */
+			filename ext_out filesrvc folderpath="/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code" filename= "&external_code_file" debug=http CD="attachment; filename=&external_code_file";  /* i18nOK:Line */
 			
 			data _null_;
 			rc=fcopy('ext_in','ext_out');   /* i18nOK:LINE */
 			msg=sysmsg();
 			put rc = msg=;
 			if rc = 0 then do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.EXTRNL_CD_SM1.1, noquote)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.EXTRNL_CD_SM1.1", "noquote");  /* i18nOK:LINE */
+				put msg;
 			end;
 			else do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.EXTRNL_CD_SM2.1, noquote)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.EXTRNL_CD_SM2.1", "noquote");  /* i18nOK:LINE */
+				put msg;
 				call symputx('job_rc',1012);     /* i18nOK:LINE */
 			end;
 			run;
@@ -89,13 +91,13 @@ quit;
 		/*************Customization done to file*******************/
 		%if &custmztn_done eq Y %then %do;
 			proc sql;
-				update &lib_apdm..EXTERNAL_CODE_MASTER set external_code_file_loc="/Products/SAS Risk Modeling/External Code"   /* i18nOK:LINE */
+				update &lib_apdm..EXTERNAL_CODE_MASTER set external_code_file_loc="/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code"   /* i18nOK:LINE */
 				where external_code_file_nm="&file_name";
 			quit;
 		%end;
 		%else %do;
 			proc sql;
-				update &lib_apdm..EXTERNAL_CODE_MASTER set external_code_file_loc="/Products/SAS Risk Modeling/Risk Modeling Content/v03.2020/Banking Solution/macros"     /* i18nOK:LINE */
+				update &lib_apdm..EXTERNAL_CODE_MASTER set external_code_file_loc="&m_cr_banking_solution_macro_path."     /* i18nOK:LINE */
 				where external_code_file_nm="&file_name";
 			quit;
 		%end;

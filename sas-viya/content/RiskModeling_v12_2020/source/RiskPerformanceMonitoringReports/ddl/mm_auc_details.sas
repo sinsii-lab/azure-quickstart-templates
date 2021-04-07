@@ -1,0 +1,41 @@
+data &rm_reporting_mart_libref..&m_msr_table;	/* I18NOK:BEGIN */
+attrib MAX_RANGE_VALUE length=8 label='Maximum Probability of Event/Maximum Score';
+attrib FN length=8 label='FN';
+attrib TP length=8 label='TP';
+attrib TN length=8 label='TN';
+attrib FP length=8 label='FP';
+attrib DIST_NON_EVENTS length=8 label='Distribution of Non-Events';
+attrib RANGE_SEQ_NO length=8 label='Range Sequence';
+attrib DIST_EVENTS length=8 label='Distribution of Events';
+attrib KS length=8 label='KS';
+attrib DIST_ALL length=8 label='Distribution All';
+attrib XDECILE length=8 label='Xdecile';
+attrib ACCURANCY length=8 label='Accuracy';
+attrib ER length=8 label='ER';
+attrib SENSITIVITY length=8 label='Sensitivity';
+attrib SPECIFICITY length=8 label='Specificity';
+attrib SPECIFICITY1 length=8 label='1-Specificity';
+attrib PIETRA length=8 label='Proportion';
+attrib PRECISION length=8 label='Precision';
+attrib DEPTH length=8 label='Depth';
+attrib BSNERRT length=8 label='Error Rate';
+attrib CILOW length=8 label='CILOW';
+attrib CIHIGH length=8 label='CIHIGH';
+attrib AUC length=8 label='AUC';
+attrib CI length=8 label='CI';
+attrib ALPHA length=8 label='Alpha';
+attrib MODEL length=$480 label='Model Name';
+attrib VERSION length=$500 label='Version Name';
+attrib SCORING_DATE length=8 label='Scoring Date' format=DATETIME25.6;
+attrib REPORT_CATEGORY_CD length=$2400 label='Report Category Code';
+attrib PURPOSE length=$500 label='Purpose';
+attrib SUBJECT_OF_ANALYSIS length=$500 label='Subject of Analysis';
+attrib BIN_TYPE length=$480 label='Bin Type';
+attrib RANGE_SCHEME_TYPE_SK length=8 label='Range Scheme Type SK';
+attrib MODEL_SK length=8 label='Model SK';
+attrib REPORT_SPECIFICATION_SK length=8 label='Version SK';
+attrib SCORING_AS_OF_TIME_SK length=8 label='Scoring Time SK';
+attrib REPORT_CATEGORY_SK length=8 label='Report Category SK';	/* I18NOK:END */
+stop;
+run;
+

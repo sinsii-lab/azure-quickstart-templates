@@ -116,7 +116,7 @@ quit;
 
 		filename scr_out "&work_lib_path/score.sas"; 		/*i18NOK:LINE*/
 		filename scr_in filesrvc 
-			folderpath="/Products/SAS Risk Modeling/Model/&m_model_sk"      /* I18NOK:LINE */
+			folderpath="/&m_file_srvr_mdl_folder_path./&m_model_sk/"      /* I18NOK:LINE */
 			filename="score.sas" debug=http CD="attachment; filename=score.sas"; /* i18nOK:Line */
 
 		data _null_;
@@ -148,7 +148,7 @@ quit;
 	%else %if &m_model_workspace_name. eq SKLEARN %then %do;
 		
 			/***** sklearn scoring**/
-				filename scr_cd filesrvc folderpath="/Products/SAS Risk Modeling/Model/&m_model_sk."  filename="score.sas" debug=http;  /* I18NOK:LINE */
+				filename scr_cd filesrvc folderpath="/&m_file_srvr_mdl_folder_path./&m_model_sk./"  filename="score.sas" debug=http;  /* I18NOK:LINE */
 			
 			proc scoreaccel ;
 			   publishmodel 

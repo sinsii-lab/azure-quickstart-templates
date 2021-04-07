@@ -41,17 +41,19 @@
 	%if &custmztn_done eq Y %then %do;
 		%if &evnt_code_exist eq 1 %then %do;
 			filename evnt_in "&path_of_event_data/&evnt_data..sas";/*i18NOK:LINE*/
-			filename evnt_out filesrvc folderpath="/Products/SAS Risk Modeling/External Code" filename= "&evnt_data..sas" debug=http CD="attachment; filename=&evnt_data..sas";/* i18nOK:Line */
+			filename evnt_out filesrvc folderpath="/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code" filename= "&evnt_data..sas" debug=http CD="attachment; filename=&evnt_data..sas";/* i18nOK:Line */
 			
 			data _null_;
 			rc=fcopy('evnt_in','evnt_out');    /* i18nOK:LINE */
 			msg=sysmsg();
 			put rc = msg=;
 			if rc = 0 then do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.EVENT_CD_SM1.1, noquote)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.EVENT_CD_SM1.1", "noquote");  /* i18nOK:LINE */
+				put msg;
 			end;
 			else do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.EVENT_CD_SM2.1, noquote));  
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.EVENT_CD_SM2.1", "noquote");  /* i18nOK:LINE */
+				put msg;
 				call symputx('job_rc',1012);    /* i18nOK:LINE */
 			end;
 			run;
@@ -66,7 +68,7 @@
 			
 			proc sql;
 				insert into &lib_apdm..external_code_master(external_code_short_nm,level_sk ,external_code_file_loc,external_code_file_nm,simultns_mltpl_var_calc_flg, parallel_exec_flg,created_dttm,created_by_user,last_processed_dttm,last_processed_by_user)
-				values("&evnt_data..sas",&m_level_sk,'/Products/SAS Risk Modeling/External Code',"&evnt_data..sas",'N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");      /* i18nOK:LINE */
+				values("&evnt_data..sas",&m_level_sk,'/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code',"&evnt_data..sas",'N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");      /* i18nOK:LINE */
 			quit;
 			
 			proc sql;
@@ -102,7 +104,7 @@
 				
 				 proc sql;
 					insert into &lib_apdm..external_code_master(external_code_short_nm,level_sk ,external_code_file_loc,external_code_file_nm,simultns_mltpl_var_calc_flg, parallel_exec_flg,created_dttm,created_by_user,last_processed_dttm,last_processed_by_user)
-					values("&evnt_data..sas",&m_level_sk,'/Products/SAS Risk Modeling/Risk Modeling Content/v03.2020/Banking Solution/macros',"&evnt_data..sas",'N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");    /* i18nOK:LINE */
+					values("&evnt_data..sas",&m_level_sk,"&m_cr_banking_solution_macro_path.","&evnt_data..sas",'N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");    /* i18nOK:LINE */
 				 quit;
 				 
 				proc sql;

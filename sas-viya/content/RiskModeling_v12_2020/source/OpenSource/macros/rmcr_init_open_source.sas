@@ -31,7 +31,7 @@
 	insert into work.rmcr_message_dtl_open_source 
 	select locale, kstrip(key), lineno, text from &lib_apdm..RMCR_MESSAGE_DETAIL where kupcase(kstrip(cr_type_cd))='OPEN_SOURCE_MODEL'; /* I18NOK:LINE */
 	quit;
-	proc sort data=work.rmcr_message_dtl_open_source;
+	proc sort data=work.rmcr_message_dtl_open_source nodupkey;
 	by locale key descending lineno;
 	run;
 	
@@ -50,9 +50,9 @@
 	
 		filename macr_cd filesrvc folderpath="&m_cr_open_source_macro_path./" filename= "&m_macro_cd_nm" debug=http; /* i18nOK:Line */
 		
-		%if "&_FILESRVC_init_cd_URI" eq "" %then %do;
+		%if "&_FILESRVC_macr_cd_URI" eq "" %then %do;
 			/* %let job_rc = 1012; */
-			%put %sysfunc(sasmsg(work.rmcr_message_dtl_open_source, RMCR_OPEN_SOURCE_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&m_init_file_path.));;
+			%put %sysfunc(sasmsg(work.rmcr_message_dtl_open_source, RMCR_OPEN_SOURCE_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&m_cr_open_source_macro_path.));
 		%end;
 		
 		%else %do;		

@@ -1,0 +1,32 @@
+#Toolkit: CCS_smd-v12
+#For Export related macros
+CPRM_OWNER_NM_LABEL=\u0412\u043b\u0430\u0434\u0435\u043b\u0435\u0446
+RMCR_CPRM.INIT_CODE1.1=%1zThe file \u00ab%#1s\u00bb  is not available at path \u00ab%#2s\u00bb. Ensure successful execution of CR.
+RMCR_CPRM_EXPORT_MODEL1.1=%1z \u00ab%#1s\u00bb Model with \u00ab%#2s\u00bb as published name does not exist in \u00ab%#3s.%#4s\u00bb CAS table corespodning to the published destination configured in SAS Risk Modeling.
+RMCR_CPRM_EXPORT_MODEL1.2=%1z Update respective published name in Risk Modeling under model properties option and rerun the export job.
+ERR_EXPORT_SPEC_FILE_NM_NOT_FOUND=%1z Export specification file \u00ab%s\u00bb not found.
+RMCR_CPRM_IMPORT_VDMML_MODEL1.1=%3z Model/s with \u00ab%#1s\u00bb as published name were existing in \u00ab%#2s.%#3s\u00bb CAS table corespodning to the published destination configured in SAS Risk Modeling. They are replaced with corresponding published model/s from source environment.
+CPRM_PRE_IMPORT_ANALYSIS_DTL.DESC1=\u041e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u043e\u0431\u044a\u0435\u043a\u0442 \u0431\u0443\u0434\u0435\u0442 \u0438\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.
+CPRM_PRE_IMPORT_ANALYSIS_DTL.DESC2=\u041e\u0436\u0438\u0434\u0430\u0435\u0442\u0441\u044f, \u0447\u0442\u043e \u043e\u0431\u044a\u0435\u043a\u0442 \u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043b\u0435\u043d \u0438\u0437 \u0446\u0435\u043b\u0435\u0432\u043e\u0433\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.
+ERR_MODEL_ID_NOT_VALID=%1zOut of the specified model IDs, the model ID \u00ab%s\u00bb does not exist.
+ERR_PROJECT_ID_NOT_VALID=%1zOut of the specified project IDs, the project ID \u00ab%s\u00bb does not exist.
+CPRM_SOURCE_ENTITY_NM_LABEL=\u0418\u043c\u044f \u0438\u0441\u0445\u043e\u0434\u043d\u043e\u0439 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438
+CPRM_SOURCE_ENTITY_ID_LABEL=ID \u0438\u0441\u0445\u043e\u0434\u043d\u043e\u0439 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438
+CPRM_TARGET_ENTITY_ID_LABEL=ID \u0446\u0435\u043b\u0435\u0432\u043e\u0439 \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438
+CPRM_LATEST_IMPORT_FLG_LABEL=\u0424\u043b\u0430\u0433 \u043f\u043e\u0441\u043b\u0435\u0434\u043d\u0435\u0433\u043e \u0438\u043c\u043f\u043e\u0440\u0442\u0430
+CPRM_CREATED_DTTM_LABEL=\u0414\u0430\u0442\u0430 \u0438 \u0432\u0440\u0435\u043c\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f
+CPRM_CREATED_BY_USER_LABEL=\u0421\u043e\u0437\u0434\u0430\u043b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c
+ERR_EXPORT_SRC_TGT_MAP_EXCEL_NOT_CREATED=%1zAn error occurred when creating the source target entity mapping info data set.
+ERR_EXPORT_SRC_TGT_MAP_EMPTY_DS=%1zsource target entity mapping info data set is empty.
+RMCR_CPRM_SYNC_ARM1.1=%1zThe table \u00ab%#1s\u00bb does not exist. So either ARM is not copied from target to source or scoring is not yet executed. So scoring control table would not be populated for model id \u00ab%#2s\u00bb.
+RMCR_CPRM_SYNC_ARM2.1=%1zThe table \u00ab%#1s\u00bb does not exist. So scoring control table would not be populated for model id \u00ab%#2s\u00bb.
+RMCR_CPRM_SYNC_ARM3.1=%1zThe table \u00ab%#1s\u00bb does not exist. So either ARM is not copied from target to source or actuals is not yet executed. So actual result control table would not be populated for model id \u00ab%#2s\u00bb.
+RMCR_CPRM_IMPORT_VDMML_MODEL2.1=%3z CAS table  \u00ab%#1s\u00bb is not avaialble in \u00ab%#2s\u00bb library.
+RMCR_CPRM_IMPORT_VDMML_MODEL3.1=%3z Physical file (.sashdat) for  \u00ab%#1s\u00bb is not avaialble in  \u00ab%#2s\u00bb. library. Hence it will be copied from source machine.
+CPRM_ENTITY_DESC_LABEL=\u041e\u041f\u0418\u0421\u0410\u041d\u0418\u0415 \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418
+CPRM_ENTITY_KEY_LABEL=\u041a\u041b\u042e\u0427 \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418
+CPRM_ENTITY_NM_LABEL=\u0418\u041c\u042f \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418
+CPRM_ENTITY_TYPE_CD_LABEL=\u041a\u041e\u0414 \u0422\u0418\u041f\u0410 \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418
+CPRM_ENTITY_TYPE_NM_LABEL=\u0418\u041c\u042f \u0422\u0418\u041f\u0410 \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418
+CPRM_PROMOTE_FLG_LABEL=\u0424\u041b\u0410\u0416\u041e\u041a \u041e\u0422\u041f\u0420\u0410\u0412\u041a\u0418 \u0421\u0423\u0429\u041d\u041e\u0421\u0422\u0418 \u041d\u0410 \u0418\u0421\u041f\u041e\u041b\u041d\u0415\u041d\u0418\u0415
+RMCR_CPRM_IMPORT_WRAPPER1.1=%1z User \u00ab%#1s\u00bb mentioned in import specification file for \u00ab%#2s\u00bb not found in target.

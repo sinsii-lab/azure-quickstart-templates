@@ -9,12 +9,8 @@
  *							   
  * Authors		: BIS Team
  *************************************************************************************************************/
-
-	filename cfg_cd filesrvc folderpath="/Products/SAS Risk Modeling/Risk Modeling Content/v03.2020/Common/Macros/" filename= "rmcr_config.sas" debug=http;    /* I18NOK:LINE */
-	
-	%include cfg_cd;
-	
-	%rmcr_config;
  
- 
- 
+%let m_cr_version=v12.2020;
+filename cfg_cd filesrvc folderpath="/&M_FILE_SRVR_ROOT_FOLDER_NM./Risk Modeling Content/&m_cr_version./Common/Macros/" filename= "rmcr_config.sas" debug=http; /* i18NOK:LINE */
+%include cfg_cd;
+%rmcr_config(cr_version=&m_cr_version.);

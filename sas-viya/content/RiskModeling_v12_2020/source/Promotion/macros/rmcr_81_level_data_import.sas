@@ -42,17 +42,19 @@
 	%if &custmztn_done eq Y %then %do;
 		%if &lvl_code_exist eq 1 %then %do;
 			filename ext_in "&path_of_level_data/csbmva_get_subset_appl_list.sas";/*i18NOK:LINE*/
-			filename ext_out filesrvc folderpath="/Products/SAS Risk Modeling/External Code" filename= "csbmva_get_subset_appl_list.sas" debug=http CD="attachment; filename=csbmva_get_subset_appl_list.sas";/* i18nOK:Line */
+			filename ext_out filesrvc folderpath="/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code" filename= "csbmva_get_subset_appl_list.sas" debug=http CD="attachment; filename=csbmva_get_subset_appl_list.sas";/* i18nOK:Line */
 
 			data _null_;
 			rc=fcopy('ext_in','ext_out');     /* i18nOK:LINE */
 			msg=sysmsg();
 			put rc = msg=;
 			if rc = 0 then do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.LEVEL_CD_SM1.1, noquote)); 
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.LEVEL_CD_SM1.1", "noquote");   /* i18nOK:LINE */
+				put msg;
 			end;
 			else do;
-				put %sysfunc(sasmsg(work.rmcr_message_dtl_promotion, RMCR_PROMOTION_MSG.LEVEL_CD_SM2.1, noquote));  
+				msg=sasmsg("work.rmcr_message_dtl_promotion", "RMCR_PROMOTION_MSG.LEVEL_CD_SM2.1", "noquote");   /* i18nOK:LINE */
+				put msg;
 				call symputx('job_rc',1012);    /* i18nOK:LINE */
 			end;
 			run;
@@ -69,7 +71,7 @@
 						
 						 proc sql;
 							insert into &lib_apdm..external_code_master(external_code_short_nm,level_sk ,external_code_file_loc,external_code_file_nm,simultns_mltpl_var_calc_flg, parallel_exec_flg,created_dttm,created_by_user,last_processed_dttm,last_processed_by_user)
-							values('csbmva_get_subset_appl_list.sas',&level_key.,'/Products/SAS Risk Modeling/External Code','csbmva_get_subset_appl_list.sas','N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");   /* i18nOK:LINE */
+							values('csbmva_get_subset_appl_list.sas',&level_key.,'/&M_FILE_SRVR_ROOT_FOLDER_NM./External Code','csbmva_get_subset_appl_list.sas','N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");   /* i18nOK:LINE */
 						 quit;
 						 
 						proc sql;
@@ -108,7 +110,7 @@
 						
 						 proc sql;
 							insert into &lib_apdm..external_code_master(external_code_short_nm,level_sk ,external_code_file_loc,external_code_file_nm,simultns_mltpl_var_calc_flg, parallel_exec_flg,created_dttm,created_by_user,last_processed_dttm,last_processed_by_user)
-							values('csbmva_get_subset_appl_list.sas',&level_key.,'/Products/SAS Risk Modeling/Risk Modeling Content/v03.2020/Banking Solution/macros','csbmva_get_subset_appl_list.sas','N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");    /* i18nOK:LINE */
+							values('csbmva_get_subset_appl_list.sas',&level_key.,"&m_cr_banking_solution_macro_path.",'csbmva_get_subset_appl_list.sas','N','N',"%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid", "%sysfunc(datetime(),DATETIME.)"dt, "&sysuserid");    /* i18nOK:LINE */
 						 quit;
 						 
 						 proc sql;

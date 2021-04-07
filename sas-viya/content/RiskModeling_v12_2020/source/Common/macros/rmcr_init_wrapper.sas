@@ -31,7 +31,9 @@
 %macro rmcr_init_wrapper;
 
 	%global m_cr_version_folder_path m_cr_open_source_macro_path m_cr_promotion_macro_path m_cr_vdmml_macro_path m_cr_banking_solution_macro_path ;
-	%global m_cr_open_source_folder_nm m_cr_promotion_folder_nm m_cr_vdmml_folder_nm m_cr_banking_solution_folder_nm;
+	%global m_cr_open_source_folder_nm m_cr_promotion_folder_nm m_cr_vdmml_folder_nm m_cr_banking_solution_folder_nm 
+		 m_cr_rpm_reports_macro_path m_cr_rpm_reports_ddl_path 
+			m_cr_cprm_folder_nm  m_cr_cprm_macro_path;
 
 	/*********************************************************/
 	/* 1. Fetch folder name and version from apdm.cs_cr_info */
@@ -56,18 +58,24 @@
 	/*********************************************************/
 	%let m_cr_open_source_folder_nm = OpenSource;
 	%let m_cr_promotion_folder_nm = Promotion;
+	%let m_cr_rpm_reports_folder_nm = Risk Performance Monitoring Reports;
+	%let m_cr_cprm_folder_nm = Selective Content Promotion;
 	/*
 	%let m_cr_vdmml_folder_nm = VDMML;*/
 	%let m_cr_banking_solution_folder_nm = Banking Solution;
 	
-	%let m_cr_version_folder_path = /Products/SAS Risk Modeling/&m_cr_folder_nm./&m_cr_version_number.;
+	%let m_cr_version_folder_path = /&M_FILE_SRVR_ROOT_FOLDER_NM./&m_cr_folder_nm./&m_cr_version_number.;
 	
 	%let m_cr_open_source_macro_path = &m_cr_version_folder_path./&m_cr_open_source_folder_nm./Macros;
 	
 	%let m_cr_promotion_macro_path = &m_cr_version_folder_path./&m_cr_promotion_folder_nm./Macros;
 	/*%let m_cr_vdmml_macro_path = &m_cr_version_folder_path./&m_cr_vdmml_folder_nm./Macros;*/
 	%let m_cr_banking_solution_macro_path = &m_cr_version_folder_path./&m_cr_banking_solution_folder_nm./Macros;
+	%let m_cr_rpm_reports_macro_path = &m_cr_version_folder_path./&m_cr_rpm_reports_folder_nm./Macros;
+
+	%let m_cr_rpm_reports_ddl_path = &m_cr_version_folder_path./&m_cr_rpm_reports_folder_nm./ddl;
 	
+	%let m_cr_cprm_macro_path = &m_cr_version_folder_path./&m_cr_cprm_folder_nm./Macros;
 	
 	
 	/*********************************************************/
@@ -96,10 +104,11 @@
 	%mend rmcr_init_compile;
 	
 	%rmcr_init_compile(m_init_file_path=&m_cr_open_source_macro_path., m_init_file_nm=rmcr_init_open_source.sas);
-	
+	%rmcr_init_compile(m_init_file_path=&m_cr_rpm_reports_macro_path., m_init_file_nm=rmcr_init_rpm_reports.sas);
 	%rmcr_init_compile(m_init_file_path=&m_cr_promotion_macro_path., m_init_file_nm=rmcr_init_promotion.sas);
 	/*%rmcr_init_compile(m_init_file_path=&m_cr_vdmml_macro_path., m_init_file_nm=rmcr_init_vdmml.sas);*/
 	%rmcr_init_compile(m_init_file_path=&m_cr_banking_solution_macro_path., m_init_file_nm=rmcr_init_banking_solution.sas);
+	%rmcr_init_compile(m_init_file_path=&m_cr_cprm_macro_path., m_init_file_nm=rmcr_init_cprm.sas);
 	
 	
 

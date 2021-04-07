@@ -31,13 +31,37 @@
 	insert into work.rmcr_message_dtl_promotion 
 	select locale, kstrip(key), lineno, text from &lib_apdm..RMCR_MESSAGE_DETAIL where kupcase(kstrip(cr_type_cd))='PROMOTION';   /* i18nOK:LINE */
 	quit;
-	proc sort data=work.rmcr_message_dtl_promotion;
+	proc sort data=work.rmcr_message_dtl_promotion nodupkey;
 	by locale key descending lineno;
 	run;
 	
 	proc datasets lib=work
 	memtype=data nolist;
 	modify rmcr_message_dtl_promotion;
+	index create indx=(LOCALE KEY);
+	run;
+	quit;  
+	
+	/******   smd message extarction ******/
+	proc sql;
+	create table work.rmcr_message_dtl_open_source  (
+	
+	locale char(5) ,
+	   key char(60) ,
+	lineno num 3,
+	text char(1200) 
+	  );
+
+	insert into work.rmcr_message_dtl_open_source 
+	select locale, kstrip(key), lineno, text from &lib_apdm..RMCR_MESSAGE_DETAIL where kupcase(kstrip(cr_type_cd))='OPEN_SOURCE_MODEL'; /* I18NOK:LINE */
+	quit;
+	proc sort data=work.rmcr_message_dtl_open_source nodupkey;
+	by locale key descending lineno;
+	run;
+	
+	proc datasets lib=work
+	memtype=data nolist;
+	modify rmcr_message_dtl_open_source;
 	index create indx=(LOCALE KEY);
 	run;
 	quit;  
@@ -51,9 +75,9 @@
 	
 		filename macr_cd filesrvc folderpath="&path./" filename= "&m_macro_cd_nm" debug=http; /* i18nOK:Line */
 		
-		%if "&_FILESRVC_init_cd_URI" eq "" %then %do;
+		%if "&_FILESRVC_macr_cd_URI" eq "" %then %do;
 			/* %let job_rc = 1012; */
-			%put %sysfunc(sasmsg(work.rmcr_message_dtl_open_source, RMCR_OPEN_SOURCE_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&m_init_file_path.));;
+			%put %sysfunc(sasmsg(work.rmcr_message_dtl_open_source, RMCR_OPEN_SOURCE_MSG.INIT_CODE1.1, noquote,&m_macro_cd_nm.,&path.));
 		%end;
 		
 		%else %do;		
@@ -77,7 +101,8 @@
 	%rmcr_compile_macro(path=&m_cr_promotion_macro_path,m_macro_cd_nm=rmcr_update_arm_xpt.sas);
 	%rmcr_compile_macro(path=&m_cr_promotion_macro_path,m_macro_cd_nm=rmcr_change_owner_authorization.sas);
 	%rmcr_compile_macro(path=&m_cr_banking_solution_macro_path,m_macro_cd_nm=rmcr_create_single_table_view.sas);
-	%rmcr_compile_macro(path=&m_cr_banking_solution_macro_path,m_macro_cd_nm=rmcr_writeback_views.sas);		
+	%rmcr_compile_macro(path=&m_cr_banking_solution_macro_path,m_macro_cd_nm=rmcr_writeback_views.sas);	
+	%rmcr_compile_macro(path=&m_cr_promotion_macro_path,m_macro_cd_nm=rmcr_update_parameter_value.sas);	
 	
 %mend rmcr_init_promotion;
 

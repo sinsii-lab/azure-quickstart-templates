@@ -1,0 +1,24 @@
+#Toolkit: CCS_smd-v12
+#for RMCR_RPM_REPORTS
+
+RMCR_RPM_REPORTS.MM_SM1.1=%2zFeed Table %#1s is not available Hence detail data is not being generated for it
+RMCR_RPM_REPORTS.MM_SM3.1=%2zFact Table %#1s is not available Hence detail data is not being generated for it
+RMCR_RPM_REPORTS.MM_SM2.1=%3zDetail measures are not applicable for development data 
+RMCR_RPM_REPORTS.MM_SM4.1=%2zMIP measures are not applicable for Backtesting report category 
+RMCR_RPM_REPORTS.MM_SM5.1=%2zMIP measures are not applicable for Continuous models
+RMCR_RPM_REPORTS.MM_SM6.1=%1zPlease pass valid report category code ONG/BCK
+RMCR_RPM_REPORTS.MM_SM7.1=%3zThere are no backtested records to sync detail data in CAS
+RMCR_RPM_REPORTS.MM_SM8.1=%3zThere are no ongoing records to sync detail data in CAS
+RMCR_RPM_REPORTS.MM_SM9.1=%3zLog copied on content server
+RMCR_RPM_REPORTS.MM_SM10.1=%1zFailed to copy log on content server
+RMCR_RPM_REPORTS.MM_SM11.1=%3zDiverting log to %#1s file If application is in debug mode then it will be available in %#2s folder on content server
+RMCR_RPM_REPORTS.MM_SM12.1=%3zNo valid combination for model %#1s version %#2s and scoring date %#3s found for %#4s report category 
+RMCR_RPM_REPORTS.MM_SM13.1=%3zDeleted the combination for model %#1s version %#2s and scoring date %#3s for %#4s report category
+RMCR_RPM_REPORTS.MM_SM14.1=%2zProvide valid combination of model id, version id and scoring date
+
+#For table MM_REPORT_CATEGORY_MASTER
+#For column report_category_desc
+MM_REPORT_CATEGORY_MASTER.CATEGORY_DESC1.1= \u00daltimos informes
+MM_REPORT_CATEGORY_MASTER.CATEGORY_DESC2.1=Informes de pruebas retrospectivas
+MM_REPORT_CATEGORY_MASTER.CATEGORY_DESC3.1= Datos de desarrollo
+
