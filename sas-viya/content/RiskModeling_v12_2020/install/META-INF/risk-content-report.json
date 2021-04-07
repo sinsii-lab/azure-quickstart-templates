@@ -107,7 +107,7 @@
 		
 },
 {
-	"name": "/META-INF/Kendall's Tau-b (p-value).json",
+	"name": "/META-INF/Kendall_Tau-b_p-value.json",
 	"description": "Risk Performance Monitoring Reports",
 	"type": "json"
 		
@@ -119,7 +119,7 @@
 		
 },
 {
-	"name": "/META-INF/Feed (Outcome-value Based).json",
+	"name": "/META-INF/Feed_Outcome-value Based.json",
 	"description": "Risk Performance Monitoring Reports",
 	"type": "json"
 		
