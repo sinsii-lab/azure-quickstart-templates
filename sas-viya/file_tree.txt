@@ -816,8 +816,8 @@
 /content/RiskModeling_v12_2020/source/OpenSource/macros/rmcr_init_open_source.sas|755
 /content/RiskModeling_v12_2020/source/OpenSource/macros/rmcr_register_model.sas|755
 /content/RiskModeling_v12_2020/source/OpenSource/macros/rmcr_score_python_model.sas|755
-/content/RiskModeling_v12_2020/source/OpenSource/samples/reference_python_script_for_sklearn_based_model.py
-/content/RiskModeling_v12_2020/source/OpenSource/samples/reference_python_script_for_swat_based_model.py
+/content/RiskModeling_v12_2020/source/OpenSource/samples/reference_python_script_for_sklearn_based_model.py|755
+/content/RiskModeling_v12_2020/source/OpenSource/samples/reference_python_script_for_swat_based_model.py|755
 /content/RiskModeling_v12_2020/source/OpenSource/samples/reference_snippet_to_register_model_into_RM.sas|755
 /content/RiskModeling_v12_2020/source/OpenSource/samples/reference_snippet_to_scikit_learn_sanity_check.sas|755
 /content/RiskModeling_v12_2020/source/OpenSource/smd/rmcr_open_source.smd|755
