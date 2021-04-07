@@ -1,4 +1,5 @@
 create table  &LIBREF..RECOVERY_FACT_BASE 
+/* I18NOK:BEGIN */
 (ACCOUNT_RK num (8) "_RKorSK ",
 CREDIT_FACILITY_RK num (8) "Credit Facility Key ",
 CUSTOMER_RK num (8) "_RKorSK ",
@@ -12,5 +13,5 @@ FINANCIAL_PRODUCT_TYPE_CD char (3) "_CD ",
 PRODUCT_SUB_TYPE_CD char (3) "_CD ",
 RECOVERY_FROM_TYPE_CD char (3) "_Id ",
 CREDIT_FACILITY_TYPE_CD char (3) "Credit Facility Type Code ",
-ACCOUNT_HIERARCHY_CD char (3) "  ")
+ACCOUNT_HIERARCHY_CD char (3) "  ")	/* I18NOK:END */
 ;

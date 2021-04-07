@@ -1,4 +1,5 @@
 create table  &LIBREF..CREDIT_BUREAU_DTL_BASE 
+/* I18NOK:BEGIN */
 (BUREAU_INFO_RK num (8) "_RKorSK ",
 PERIOD_LAST_DTTM num (8) "  ",
 BUREAU_DESC char (100) "BUREAU_DESC ",
@@ -46,5 +47,5 @@ TOT_PAST_DUE_SLOW_90_AMT num (8) "_AMT ",
 TOTAL_BALANCE_AMT num (8) "_AMT ",
 WORST_RATING_12_MTH_NO num (8) "No or Amt ",
 APPLICANT_TYPE_CD char (3) "Applicant Type Code ",
-APPLICATION_DTTM num (8) "Application Date ")
+APPLICATION_DTTM num (8) "Application Date ")	/* I18NOK:END */
 ;
