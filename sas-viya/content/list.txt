@@ -16,7 +16,6 @@ C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\error_rate_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\event_shift_index_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\event_stability_index_report.json.orig
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Feed (Outcome-value Based).json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Feed.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\feed_mip_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\folder_package.json
@@ -24,7 +23,6 @@ C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Graph_of_Fraction.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Information_Statistic.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\information_value_statistic_report.json.orig
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Kendall's Tau-b (p-value).json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Kolmogorov-Smirnov.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\kullback-leibler_statistic_report.json.orig
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\install\META-INF\Mean_Absolute_Percent_Error.json.orig
