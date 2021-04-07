@@ -58,6 +58,7 @@
 /content/RiskModeling_v12_2020/install/META-INF/error_rate_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/event_shift_index_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/event_stability_index_report.json.orig|755
+/content/RiskModeling_v12_2020/install/META-INF/Feed _Outcome-value Based.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/Feed.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/feed_mip_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/folder_package.json|755
@@ -65,6 +66,7 @@
 /content/RiskModeling_v12_2020/install/META-INF/Graph_of_Fraction.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/Information_Statistic.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/information_value_statistic_report.json.orig|755
+/content/RiskModeling_v12_2020/install/META-INF/Kendall_Tau-b_p-value.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/Kolmogorov-Smirnov.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/kullback-leibler_statistic_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/Mean_Absolute_Percent_Error.json.orig|755
@@ -124,7 +126,7 @@
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_es.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_ja.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_ko.reports|755
-/content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_pt_BR.reports755
+/content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_pt_BR.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_ru.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_zh-CN.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Bayesian_Error_Rate_zh-HK.reports|755
