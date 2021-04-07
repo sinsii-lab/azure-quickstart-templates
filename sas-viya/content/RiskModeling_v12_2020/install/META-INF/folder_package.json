@@ -845,7 +845,7 @@
             "/folders/folders/9fb533a5-90af-480a-b2af-3a0b36e3ae1b",
             "/folders/folders/3e3e2b14-9714-4601-b057-243cf1877899"
           ],
-          "name": "v03.2020",
+          "name": "v12.2020",
           "contentType": "application/vnd.sas.content.folder+json",
           "type": "parentFolder",
           "hints": {},
@@ -1622,7 +1622,7 @@
             "/folders/folders/9fb533a5-90af-480a-b2af-3a0b36e3ae1b",
             "/folders/folders/3e3e2b14-9714-4601-b057-243cf1877899"
           ],
-          "name": "v03.2020",
+          "name": "v12.2020",
           "contentType": "application/vnd.sas.content.folder+json",
           "type": "parentFolder",
           "hints": {},
@@ -2523,7 +2523,7 @@
             "/folders/folders/9fb533a5-90af-480a-b2af-3a0b36e3ae1b",
             "/folders/folders/3e3e2b14-9714-4601-b057-243cf1877899"
           ],
-          "name": "v03.2020",
+          "name": "v12.2020",
           "contentType": "application/vnd.sas.content.folder+json",
           "type": "parentFolder",
           "hints": {},
@@ -3303,7 +3303,7 @@
             "/folders/folders/9fb533a5-90af-480a-b2af-3a0b36e3ae1b",
             "/folders/folders/3e3e2b14-9714-4601-b057-243cf1877899"
           ],
-          "name": "v03.2020",
+          "name": "v12.2020",
           "contentType": "application/vnd.sas.content.folder+json",
           "type": "parentFolder",
           "hints": {},
@@ -4079,7 +4079,7 @@
             "/folders/folders/9fb533a5-90af-480a-b2af-3a0b36e3ae1b",
             "/folders/folders/3e3e2b14-9714-4601-b057-243cf1877899"
           ],
-          "name": "v03.2020",
+          "name": "v12.2020",
           "contentType": "application/vnd.sas.content.folder+json",
           "type": "parentFolder",
           "hints": {},
@@ -4532,8 +4532,8 @@
           "modifiedBy": "fsdrisk",
           "id": "71c219a0-a7f3-4844-acf5-d5156c180246",
           "type": "folder",
-          "name": "v03.2020",
-          "description": "v03.2020",
+          "name": "v12.2020",
+          "description": "v12.2020",
           "links": [
             {
               "method": "GET",

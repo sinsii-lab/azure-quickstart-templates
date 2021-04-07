@@ -1,21 +1,218 @@
-{"metafolders":[
-{
-	"name": "SAS Risk Modeling",
-	"description": "SAS Risk Modeling",
-	"folderType": "folder",
-	"parentFolderUri": "/Products"
-},
-{
+{"metafolders":[{
 	"name": "Risk Modeling Content",
 	"description": "Risk Modeling Content",
 	"folderType": "folder",
 	"parentFolderUri": "/Products/SAS Risk Modeling"
 },
 {
-	"name": "v03.2020",
-	"description": "v03.2020",
+	"name": "v12.2020",
+	"description": "v12.2020",
 	"folderType": "folder",
 	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content"
+},
+{
+	"name": "Risk Performance Monitoring Reports",
+	"description": "Risk Performance Monitoring Reports",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports"
+},
+{
+	"name": "Banking Solution",
+	"description": "Banking Solution",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Banking Solution"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Banking Solution"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Banking Solution"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Banking Solution"
+},
+{
+	"name": "Common",
+	"description": "Common",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Common"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Common"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Common"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Common"
+},
+{
+	"name": "OpenSource",
+	"description": "OpenSource",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/OpenSource"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/OpenSource"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/OpenSource"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/OpenSource"
+},
+{
+	"name": "Promotion",
+	"description": "Promotion",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Promotion"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Promotion"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Promotion"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Promotion"
+},
+{
+	"name": "VDMML Templates",
+	"description": "VDMML Templates",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates"
+},
+{
+	"name": "Selective Content Promotion",
+	"description": "Selective Content Promotion",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020"
+},
+{
+	"name": "macros",
+	"description": "macros",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Selective Content Promotion"
+},
+{
+	"name": "smd",
+	"description": "smd",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Selective Content Promotion"
+},
+{
+	"name": "ddl",
+	"description": "ddl",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Selective Content Promotion"
+},
+{
+	"name": "samples",
+	"description": "samples",
+	"folderType": "folder",
+	"parentFolderUri": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Selective Content Promotion"
 }
 ]
 }

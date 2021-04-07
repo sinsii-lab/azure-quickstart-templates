@@ -1,0 +1,23 @@
+{"authrule":[{
+	"objecturi": "",
+	"objectpath": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020",
+	"permissions":[
+	"read",
+	"delete",
+	"update"
+	],
+	"principal": "riskModeler",
+	"principalType": "group",
+	"type": "grant"
+}, {
+	"objecturi": "",
+	"objectpath": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020",
+	"permissions": [
+	"read",
+	"delete"
+	],
+	"principal": "riskModelValidathgjor",
+	"principalType": "group",
+	"type": "grant"
+}]
+}

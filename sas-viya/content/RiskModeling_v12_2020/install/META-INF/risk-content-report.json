@@ -1,0 +1,265 @@
+{"spk":[{
+	"name": "/META-INF/model_health_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/model_health_details.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/model_monitoring_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/model_input_monitoring_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Correlation_Analysis.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Kolmogorov-Smirnov.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Mean_Absolute_Percent_Error.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/System_Stability_Index.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/area_under_curve_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/event_stability_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/variable_stability_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/score_shift_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/somers_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/accuracy_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/dstatistic_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/distribution_chart_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/error_rate_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Information_Statistic.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Kendall's Tau-b (p-value).json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Feed.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Feed (Outcome-value Based).json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/accuracy_ratio_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/gains_table_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/bayesian_error_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/validation_score_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/specificity_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/sensitivity_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/precision_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/weighted_score_shift_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/information_value_statistic_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/normal_test_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/event_shift_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/mean_squared_error_binary_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/mean_squared_error_continuous_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/feed_mip_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/pietra_index_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/kullback-leibler_statistic_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Binomial_Test.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/ci_binary_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/ci_cont_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/traffic_light_test_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/distribution_report.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Graph_of_Fraction.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+},
+{
+	"name": "/META-INF/Observed_versus_Estimated_Index.json",
+	"description": "Risk Performance Monitoring Reports",
+	"type": "json"
+		
+}]
+}
