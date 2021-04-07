@@ -263,7 +263,7 @@
 /content/RiskModeling_v12_2020/install/resource/META-INF/Gains_Table_and_Lift_Chart_zh-CN.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Gains_Table_and_Lift_Chart_zh-HK.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Gains_Table_and_Lift_Chart_zh-TW.reports|755
-C:/Users/sinsii/Documents/IMPdata/satish_handover/azure/pkg/RiskModeling_v12_2020/install/resource/META-INF/Graph_of_Fraction_of_Events_Versus_Fraction_of_NonEvents.reports|755
+/content/RiskModeling_v12_2020/install/resource/META-INF/Graph_of_Fraction_of_Events_Versus_Fraction_of_NonEvents.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Graph_of_Fraction_of_Events_Versus_Fraction_of_NonEvents_es.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Graph_of_Fraction_of_Events_Versus_Fraction_of_NonEvents_ja.reports|755
 /content/RiskModeling_v12_2020/install/resource/META-INF/Graph_of_Fraction_of_Events_Versus_Fraction_of_NonEvents_ko.reports|755
