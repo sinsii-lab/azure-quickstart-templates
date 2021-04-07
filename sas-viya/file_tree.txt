@@ -43,6 +43,7 @@
 /content/RiskModeling_v12_2020/install/cli_wrapper.sh|755
 /content/RiskModeling_v12_2020/install/common.properties|755
 /content/RiskModeling_v12_2020/install/risk-content-package.yaml|755
+/content/RiskModeling_v12_2020/install/sas-risk-content-cli|755
 /content/RiskModeling_v12_2020/install/META-INF/accuracy_ratio_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/accuracy_report.json.orig|755
 /content/RiskModeling_v12_2020/install/META-INF/area_under_curve_report.json.orig|755
