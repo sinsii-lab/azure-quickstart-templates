@@ -987,6 +987,6 @@
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/smd/dabt_cprm_misc_zh_HK.smd|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/smd/dabt_cprm_misc_zh_TW.smd|755
 /content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_credit_conversion_factor_model.zip|755
-/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_loss given_default_model.zip|755
+/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_loss_given_default_model.zip|755
 /content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_PD_application_scorecard.zip|755
 /content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_PD_behavioral_scorecard.zip|755
