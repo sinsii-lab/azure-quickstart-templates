@@ -2103,22 +2103,22 @@
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports/smd",
             "filename": "Model-Health Details_en_Localization",
-            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Health Details_en_Localization"
+            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Health_Details_en_Localization"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports/smd",
             "filename": "Model-Health Report_en_Localization",
-            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Health Report_en_Localization"
+            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Health_Report_en_Localization"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports/smd",
             "filename": "Model-Input Monitoring Report_en_Localization",
-            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Input Monitoring Report_en_Localization"
+            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Input_Monitoring_Report_en_Localization"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports/smd",
             "filename": "Model-Monitoring Report_en_Localization",
-            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Monitoring Report_en_Localization"
+            "filepath": "../source/RiskPerformanceMonitoringReports/smd/Model-Monitoring_Report_en_Localization"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/Risk Performance Monitoring Reports/smd",
@@ -2448,22 +2448,22 @@
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates/samples",
             "filename": "Template for PD application scorecard",
-            "filepath": "../source/VDMML Templates/samples/Template for PD application scorecard.zip"
+            "filepath": "../source/VDMMLTemplates/samples/Template_for_PD_application_scorecard.zip"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates/samples",
             "filename": "Template for PD behavioral scorecard",
-            "filepath": "../source/VDMML Templates/samples/Template for PD behavioral scorecard.zip"
+            "filepath": "../source/VDMMLTemplates/samples/Template_for_PD_behavioral_scorecard.zip"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates/samples",
             "filename": "Template for credit conversion factor model",
-            "filepath": "../source/VDMML Templates/samples/Template for credit conversion factor model.zip"
+            "filepath": "../source/VDMMLTemplates/samples/Template_for_credit_conversion_factor_model.zip"
         },
         {
             "parentfolderid": "/Products/SAS Risk Modeling/Risk Modeling Content/v12.2020/VDMML Templates/samples",
             "filename": "Template for loss given default model",
-            "filepath": "../source/VDMML Templates/samples/Template for loss given default model.zip"
+            "filepath": "../source/VDMMLTemplates/samples/Template_for_loss_given_default_model.zip"
         }
     ]
 }
