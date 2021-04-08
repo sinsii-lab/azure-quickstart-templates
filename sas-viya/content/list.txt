@@ -875,10 +875,10 @@ C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\macros\rmcr_apply_server_localisation.sas
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\macros\rmcr_enable_rerun_sync_dtl_data.sas
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\macros\rmcr_init_rpm_reports.sas
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Health Details_en_Localization
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Health Report_en_Localization
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Input Monitoring Report_en_Localization
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Monitoring Report_en_Localization
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Health_Details_en_Localization
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Health_Report_en_Localization
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Input_Monitoring_Report_en_Localization
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\Model-Monitoring_Report_en_Localization
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\rmcr_rpm_reports.smd
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\rmcr_rpm_reports_es.smd
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\RiskPerformanceMonitoringReports\smd\rmcr_rpm_reports_ja.smd
@@ -944,7 +944,7 @@ C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\SelectiveContentPromotion\smd\dabt_cprm_misc_zh_CN.smd
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\SelectiveContentPromotion\smd\dabt_cprm_misc_zh_HK.smd
 C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\SelectiveContentPromotion\smd\dabt_cprm_misc_zh_TW.smd
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMML Templates\samples\Template for credit conversion factor model.zip
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMML Templates\samples\Template for loss given default model.zip
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMML Templates\samples\Template for PD application scorecard.zip
-C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMML Templates\samples\Template for PD behavioral scorecard.zip
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMML Templates\samples\Template_for_credit_conversion_factor model.zip
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMMLTemplates\samples\Template_for_loss_given_default_model.zip
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMMLTemplates\samples\Template_for_PD_application_scorecard.zip
+C:\repo\rm_quick\quickstart-sas-viya-azure\sas-viya\scripts\content\RiskModeling_v12_2020\source\VDMMLTemplates\samples\Template_for_PD_behavioral_scorecard.zip
