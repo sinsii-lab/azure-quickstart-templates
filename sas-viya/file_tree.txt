@@ -858,7 +858,7 @@
 /content/RiskModeling_v12_2020/source/Promotion/smd/rmcr_promotion_zh_CN.smd|755
 /content/RiskModeling_v12_2020/source/Promotion/smd/rmcr_promotion_zh_HK.smd|755
 /content/RiskModeling_v12_2020/source/Promotion/smd/rmcr_promotion_zh_TW.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringreports/ddl/mip_attr_feed.sas|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/ddl/mip_attr_feed.sas|755
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/ddl/mip_evntshftin_details.sas|755
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/ddl/mip_evntstbind_details.sas|755
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/ddl/mip_infvalsts_details.sas|755
@@ -916,20 +916,20 @@
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/macros/csbmva_valscr.sas|755
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/macros/rmcr_apply_server_localisation.sas|755
 /content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/macros/rmcr_enable_rerun_sync_dtl_data.sas|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/macros/rmcr_init_rpm_reports|755.sas|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Health Details_en_Localization
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Health Report_en_Localization
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Input Monitoring Report_en_Localization
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Monitoring Report_en_Localization
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_es.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_ja.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_ko.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_pt_BR.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_ru.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_zh_CN.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_zh_HK.smd|755
-/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports|755_zh_TW.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/macros/rmcr_init_rpm_reports.sas|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Health Details_en_Localization|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Health Report_en_Localization|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Input Monitoring Report_en_Localization|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/Model-Monitoring Report_en_Localization|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_es.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_ja.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_ko.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_pt_BR.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_ru.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_zh_CN.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_zh_HK.smd|755
+/content/RiskModeling_v12_2020/source/RiskPerformanceMonitoringReports/smd/rmcr_rpm_reports_zh_TW.smd|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/ddl/dummy.sas|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/macros/cprm_src_tgt_entity_mapping_info.sas|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/macros/dabt_assign_libs.sas|755
@@ -986,7 +986,7 @@
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/smd/dabt_cprm_misc_zh_CN.smd|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/smd/dabt_cprm_misc_zh_HK.smd|755
 /content/RiskModeling_v12_2020/source/SelectiveContentPromotion/smd/dabt_cprm_misc_zh_TW.smd|755
-/content/RiskModeling_v12_2020/source/VDMML Templates/samples/Template for credit conversion factor model.zip|755
-/content/RiskModeling_v12_2020/source/VDMML Templates/samples/Template for loss given default model.zip|755
-/content/RiskModeling_v12_2020/source/VDMML Templates/samples/Template for PD application scorecard.zip|755
-/content/RiskModeling_v12_2020/source/VDMML Templates/samples/Template for PD behavioral scorecard.zip|755
+/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_credit_conversion_factor_model.zip|755
+/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_loss given_default_model.zip|755
+/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_PD_application_scorecard.zip|755
+/content/RiskModeling_v12_2020/source/VDMMLTemplates/samples/Template_for_PD_behavioral_scorecard.zip|755
