@@ -93,5 +93,5 @@ elif [[ "$SCRIPT_PHASE" -eq "9" ]]; then
 	cat "${CAS_URI_FILE}" |tr -d '\n'
 elif [[ "$SCRIPT_PHASE" -eq "10" ]]; then
 	echo "Installing Risk Modeling Content"
-    su $INSTALL_USER -c	"cd ${CODE_DIRECTORY}/content/RiskModeling_v03_2020/install; ./cli_wrapper.sh -e https://$PUBLIC_DNS_NAME -u sasadmin -p $ADMINPASS -P ."										 
+    su $INSTALL_USER -c	"cd ${CODE_DIRECTORY}/content/RiskModeling_v12_2020/install; ./cli_wrapper.sh -e https://$PUBLIC_DNS_NAME -u sasadmin -p $ADMINPASS -P ."										 
 fi
